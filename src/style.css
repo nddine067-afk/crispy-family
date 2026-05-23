@@ -640,9 +640,44 @@ button {
   width: min(980px, 100%);
   margin: 18px auto 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 16px 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sub-category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--muted);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 850;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.sub-tab:hover {
+  border-color: var(--pink);
+  color: var(--pink-dark);
+}
+
+.sub-tab.active-sub {
+  background: var(--text);
+  color: white;
+  border-color: var(--text);
+  box-shadow: 0 12px 28px rgba(36, 21, 34, 0.18);
 }
 
 .sub-tab {
