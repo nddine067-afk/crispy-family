@@ -726,7 +726,8 @@ button {
   margin: 0 auto 26px;
   display: grid;
   grid-template-columns: 46px 1fr 46px;
-  align-items: center;
+  align-items: start;
+  position: relative;
 }
 
 .brand-title {
@@ -742,22 +743,34 @@ button {
 }
 
 .admin-icon-link {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 28px rgba(255, 79, 154, 0.12);
-  font-size: 18px;
-  transition: 0.2s ease;
+  color: var(--pink-dark);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 240, 246, 0.92));
+  border: 1px solid rgba(255, 79, 154, 0.22);
+  box-shadow:
+    0 12px 28px rgba(255, 79, 154, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: 0.22s ease;
 }
 
 .admin-icon-link:hover {
-  transform: translateY(-2px);
-  background: var(--pink);
+  transform: translateY(-2px) scale(1.03);
+  color: white;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  border-color: transparent;
+  box-shadow: 0 16px 34px rgba(255, 79, 154, 0.28);
+}
+
+.admin-icon-link svg {
+  display: block;
 }
 
 @media (max-width: 560px) {
@@ -776,8 +789,15 @@ button {
   }
 
   .admin-icon-link {
+    top: 4px;
+    right: 0;
     width: 38px;
     height: 38px;
-    font-size: 16px;
+    border-radius: 14px;
+  }
+
+  .admin-icon-link svg {
+    width: 18px;
+    height: 18px;
   }
 }
