@@ -746,19 +746,28 @@ button {
   position: absolute;
   top: 6px;
   right: 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 16px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
   text-decoration: none;
   color: var(--pink-dark);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 240, 246, 0.92));
-  border: 1px solid rgba(255, 79, 154, 0.22);
-  box-shadow:
-    0 12px 28px rgba(255, 79, 154, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   transition: 0.22s ease;
+}
+
+.admin-icon-link:hover {
+  transform: translateY(-2px) scale(1.08);
+  color: var(--pink);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.admin-icon-link svg {
+  display: block;
 }
 
 .admin-icon-link:hover {
@@ -799,5 +808,18 @@ button {
   .admin-icon-link svg {
     width: 18px;
     height: 18px;
+  }
+}
+@media (max-width: 560px) {
+  .category-tabs {
+    width: calc(100% - 70px);
+    margin-top: 18px;
+    padding: 5px;
+    gap: 4px;
+  }
+
+  .tab {
+    padding: 10px 6px;
+    font-size: 13px;
   }
 }
