@@ -78,24 +78,15 @@ export default function Home() {
   return (
     <main className="site">
       <section className="hero">
-        <header className="top-nav">
-          <div className="logo-placeholder">
-            <span>Logo</span>
-          </div>
+        <header className="top-nav minimal-nav">
+  <div></div>
 
-          <Link className="admin-link" to="/admin">
-            Espace admin
-          </Link>
-        </header>
+  <h1 className="brand-title">Crispy Family</h1>
 
-        <div className="hero-content">
-          <p className="small-label">Crispy Family</p>
-          <h1>Un menu simple, moderne et gourmand</h1>
-          <p className="subtitle">
-            Découvrez nos salés, nos sucrés, nos glaces et nos jus. Choisissez
-            votre envie puis appelez directement pour commander.
-          </p>
-        </div>
+  <Link className="admin-icon-link" to="/admin" aria-label="Espace admin">
+    ⚙️
+  </Link>
+</header>
 
         <div className="category-tabs">
           {categories.map((cat) => (
