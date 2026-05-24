@@ -135,21 +135,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="products-section">
-        <div className="section-title">
-          <div>
-            <p className="section-label">{activeCategoryLabel}</p>
-            <h2>
-              {activeSubCategory === "all"
-                ? `Tous les produits ${activeCategoryLabel}`
-                : activeSubCategoryLabel}
-            </h2>
-          </div>
-
-          <p>Des produits bien présentés, des prix clairs, un appel direct.</p>
-        </div>
-
-        <div className="products-grid">
+      <section className="products-section clean-products-section">
+  <div className="products-grid">
           {filteredProducts.length === 0 ? (
             <p className="empty">Aucun produit disponible pour le moment.</p>
           ) : (
