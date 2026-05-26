@@ -1725,3 +1725,62 @@ body,
     gap: 8px !important;
   }
 }
+.floating-call-btn,
+.main-call-btn {
+  display: none !important;
+}
+
+.mobile-quick-actions {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 18px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quick-action-btn {
+  height: 54px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 950;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 34px rgba(255, 79, 154, 0.22);
+}
+
+.map-action {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+}
+
+.call-action {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+}
+
+@media screen and (max-width: 560px) {
+  .site {
+    padding-bottom: 92px !important;
+  }
+
+  .products-section {
+    padding-bottom: 110px !important;
+  }
+
+  .mobile-quick-actions {
+    bottom: 18px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .quick-action-btn {
+    height: 52px;
+    font-size: 14px;
+  }
+}

@@ -38,7 +38,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   const phone = import.meta.env.VITE_SERVICE_PHONE;
-
+const mapsUrl = import.meta.env.VITE_MAPS_URL;
   useEffect(() => {
     const q = query(collection(db, "products"), orderBy("order", "asc"));
 
@@ -150,9 +150,25 @@ export default function Home() {
                   <h3>{product.name}</h3>
                   <p className="price">{product.price} DA</p>
 
-                  <a className="call-btn" href={`tel:${phone}`}>
-                    Appeler
-                  </a>
+                 <div className="mobile-quick-actions">
+  <a
+    className="quick-action-btn map-action"
+    href={mapsUrl}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Voir le restaurant sur Google Maps"
+  >
+    📍 <span>Localiser</span>
+  </a>
+
+  <a
+    className="quick-action-btn call-action"
+    href={`tel:${phone}`}
+    aria-label="Appeler le restaurant"
+  >
+    📞 <span>Appeler</span>
+  </a>
+</div>
                 </div>
               </article>
             ))
