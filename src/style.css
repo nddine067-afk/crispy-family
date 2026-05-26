@@ -2002,3 +2002,121 @@ body,
 .glass-action-btn span {
   letter-spacing: -0.02em !important;
 }
+/* ===============================
+   FINAL BOTTOM FLOATING ACTION BAR
+   long horizontal glass buttons
+================================ */
+
+.header-action-icons,
+.floating-call,
+.floating-call-btn,
+.main-call-btn,
+.global-call-btn,
+.call-floating,
+.bottom-call-btn,
+.mobile-quick-actions {
+  display: none !important;
+}
+
+html,
+body,
+#root {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.site {
+  padding-bottom: 125px !important;
+  overflow-x: hidden !important;
+}
+
+.glass-quick-actions {
+  position: fixed !important;
+  left: 14px !important;
+  right: 14px !important;
+  bottom: 18px !important;
+  z-index: 99999 !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.glass-action-btn {
+  height: 54px !important;
+  border-radius: 999px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.02em !important;
+
+  color: #2b1323 !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  border: 1px solid rgba(255, 255, 255, 0.78) !important;
+
+  box-shadow:
+    0 14px 35px rgba(31, 16, 28, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+
+  backdrop-filter: blur(18px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(170%) !important;
+}
+
+.glass-map-btn,
+.glass-call-btn {
+  background: rgba(255, 255, 255, 0.42) !important;
+  color: #2b1323 !important;
+}
+
+.action-icon {
+  width: 20px !important;
+  height: 20px !important;
+  flex: 0 0 auto !important;
+  color: var(--pink-dark) !important;
+}
+
+.glass-action-btn:active {
+  transform: scale(0.97) !important;
+}
+
+.products-section {
+  padding-bottom: 135px !important;
+}
+
+@media screen and (max-width: 560px) {
+  .glass-quick-actions {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 16px !important;
+    gap: 8px !important;
+  }
+
+  .glass-action-btn {
+    height: 52px !important;
+    font-size: 13px !important;
+  }
+
+  .action-icon {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .products-section {
+    padding-bottom: 140px !important;
+  }
+}

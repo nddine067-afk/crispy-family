@@ -162,12 +162,7 @@ export default function Home() {
     rel="noreferrer"
     aria-label="Localiser le restaurant"
   >
-    <svg
-      className="action-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg className="action-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12Z"
         stroke="currentColor"
@@ -188,12 +183,7 @@ export default function Home() {
     href={`tel:${phone}`}
     aria-label="Appeler le restaurant"
   >
-    <svg
-      className="action-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg className="action-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M22 16.9v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.2 18.8a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.94a16 16 0 0 0 6.06 6.06l1.31-1.31a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.9Z"
         stroke="currentColor"
