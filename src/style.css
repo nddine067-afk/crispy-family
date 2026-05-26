@@ -1129,3 +1129,233 @@ button {
     box-shadow: 0 14px 28px rgba(255, 79, 154, 0.25);
   }
 }
+/* =====================================================
+   FINAL ADMIN MOBILE UI - PUT THIS AT THE VERY END
+===================================================== */
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 12px !important;
+    background: #fffafc !important;
+  }
+
+  .dashboard-header {
+    width: 100% !important;
+    margin: 0 0 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .dashboard-header h1 {
+    font-size: 26px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .dashboard-header p {
+    font-size: 13px !important;
+  }
+
+  .dashboard-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .preview-btn,
+  .logout-btn {
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 16px !important;
+    display: grid !important;
+    place-items: center !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    padding: 0 !important;
+  }
+
+  .admin-panel {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 0 !important;
+  }
+
+  .product-form,
+  .admin-products {
+    width: 100% !important;
+    padding: 16px !important;
+    border-radius: 26px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 14px 32px rgba(255, 79, 154, 0.12) !important;
+  }
+
+  .product-form h2,
+  .admin-products h2 {
+    font-size: 21px !important;
+    margin: 0 0 14px !important;
+  }
+
+  .product-form label {
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    margin-top: 11px !important;
+  }
+
+  .product-form input,
+  .product-form select,
+  .product-form button {
+    width: 100% !important;
+    min-height: 46px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .product-form button[type="submit"] {
+    margin-top: 16px !important;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark)) !important;
+    color: white !important;
+    font-weight: 950 !important;
+    border: none !important;
+    box-shadow: 0 14px 30px rgba(255, 79, 154, 0.24) !important;
+  }
+
+  .admin-products-head {
+    display: block !important;
+    margin-bottom: 12px !important;
+  }
+
+  .admin-products-head h2 {
+    margin: 0 !important;
+    font-size: 21px !important;
+  }
+
+  .admin-products-head p {
+    margin: 5px 0 0 !important;
+    font-size: 12px !important;
+    color: var(--muted) !important;
+  }
+
+  .admin-filter-tabs,
+  .admin-sub-filter-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 2px 2px 12px !important;
+    margin: 0 0 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .admin-filter-tabs::-webkit-scrollbar,
+  .admin-sub-filter-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .admin-filter,
+  .admin-sub-filter {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 9px 13px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    border: 1px solid var(--border) !important;
+    background: white !important;
+    color: var(--muted) !important;
+  }
+
+  .active-admin-filter,
+  .active-admin-sub-filter {
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark)) !important;
+    color: white !important;
+    border-color: transparent !important;
+    box-shadow: 0 10px 24px rgba(255, 79, 154, 0.24) !important;
+  }
+
+  .admin-product-card {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 14px !important;
+    margin: 0 0 14px !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 24px !important;background: white !important;
+    box-shadow: 0 12px 28px rgba(255, 79, 154, 0.1) !important;
+  }
+
+  .admin-image-box {
+    width: 100% !important;
+    display: grid !important;
+    gap: 10px !important;
+  }
+
+  .admin-image-box img,
+  .admin-product-card img {
+    width: 100% !important;
+    height: 190px !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    display: block !important;
+  }
+
+  .change-image-btn {
+    width: 100% !important;
+    height: 42px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 15px !important;
+    background: var(--pink-soft) !important;
+    color: var(--pink-dark) !important;
+    border: 1px solid var(--border) !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+  }
+
+  .admin-product-fields {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .admin-product-fields input,
+  .admin-product-fields select {
+    width: 100% !important;
+    min-height: 44px !important;
+    margin: 0 !important;
+    border-radius: 15px !important;
+    font-size: 14px !important;
+  }
+
+  .admin-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .admin-actions button {
+    width: 100% !important;
+    height: 42px !important;
+    border-radius: 15px !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+  }
+
+  .empty-admin {
+    padding: 24px 14px !important;
+    text-align: center !important;
+    background: var(--pink-soft) !important;
+    border-radius: 18px !important;
+    color: var(--muted) !important;
+    font-size: 13px !important;
+  }
+}
