@@ -1882,4 +1882,88 @@ body,
   .products-section {
     padding-bottom: 155px !important;
   }
+}/* ===============================
+   FLOATING GLASS ACTION BUTTONS
+   final version
+================================ */
+
+.glass-quick-actions {
+  position: fixed !important;
+  right: 18px !important;
+  bottom: 92px !important;
+  left: auto !important;
+  z-index: 9999 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.glass-action-btn {
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 50% !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  background: rgba(255, 255, 255, 0.34) !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+
+  color: #2b1323 !important;
+  text-decoration: none !important;
+
+  box-shadow:
+    0 12px 28px rgba(255, 79, 154, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+
+  backdrop-filter: blur(18px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(170%) !important;
+}
+
+.glass-action-btn span:not(.glass-icon) {
+  display: none !important;
+}
+
+.glass-icon {
+  font-size: 23px !important;
+  line-height: 1 !important;
+}
+
+.glass-map-btn,
+.glass-call-btn {
+  background: rgba(255, 255, 255, 0.34) !important;
+  color: #2b1323 !important;
+}
+
+.glass-action-btn:active {
+  transform: scale(0.94) !important;
+}
+
+.products-section {
+  padding-bottom: 90px !important;
+}
+
+@media screen and (max-width: 560px) {
+  .glass-quick-actions {
+    right: 14px !important;
+    bottom: 92px !important;
+    gap: 10px !important;
+  }
+
+  .glass-action-btn {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  .glass-icon {
+    font-size: 22px !important;
+  }
 }
