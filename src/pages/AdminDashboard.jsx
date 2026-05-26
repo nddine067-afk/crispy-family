@@ -14,6 +14,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { db, auth } from "../firebase";
 import { uploadImageToCloudinary } from "../utils/cloudinary";
 
+const categories = [
+  { id: "sale", label: "Salé" },
+  { id: "sucre", label: "Sucré" },
+  { id: "glaces_jus", label: "Glaces & Jus" },
+];
+
 const subCategories = {
   sale: [
     { id: "salades_grillades", label: "Salades & Grillades" },
@@ -28,10 +34,10 @@ const subCategories = {
     { id: "kunafa_noix", label: "Kunafa & Noix" },
   ],
   glaces_jus: [
-  { id: "glaces", label: "Glaces" },
-  { id: "jus", label: "Jus" },
-  { id: "boissons", label: "Boissons" },
-],
+    { id: "glaces", label: "Glaces" },
+    { id: "jus", label: "Jus" },
+    { id: "boissons", label: "Boissons" },
+  ],
 };
 
 export default function AdminDashboard() {
@@ -39,6 +45,11 @@ export default function AdminDashboard() {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [changingImageId, setChangingImageId] = useState(null);
+
+  const [activeCategory, setActiveCategory] = useState("sale");
+  const [activeSubCategory, setActiveSubCategory] =
+    useState("salades_grillades");
 
   const [form, setForm] = useState({
     name: "",
@@ -72,6 +83,11 @@ export default function AdminDashboard() {
 
     return () => unsubscribe();
   }, []);
+
+  function handleFilterCategory(categoryId) {
+    setActiveCategory(categoryId);
+    setActiveSubCategory(subCategories[categoryId][0].id);
+  }
 
   function handleChange(e) {
     const { name, value, files } = e.target;
@@ -120,8 +136,8 @@ export default function AdminDashboard() {
       setForm({
         name: "",
         price: "",
-        category: "sale",
-        subCategory: "salades_grillades",
+        category: form.category,
+        subCategory: form.subCategory,
         image: null,
       });
 
@@ -132,6 +148,27 @@ export default function AdminDashboard() {
       alert(error.message || "صار خطأ أثناء إضافة المنتج");
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function updateProductImage(productId, file) {
+    if (!file) return;
+
+    try {
+      setChangingImageId(productId);
+
+      const imageUrl = await uploadImageToCloudinary(file);
+
+      await updateDoc(doc(db, "products", productId), {
+        imageUrl,
+      });
+
+      alert("تم تغيير الصورة بنجاح");
+    } catch (error) {
+      console.error(error);
+      alert(error.message || "صار خطأ أثناء تغيير الصورة");
+    } finally {
+      setChangingImageId(null);
     }
   }
 
@@ -178,10 +215,19 @@ export default function AdminDashboard() {
     navigate("/admin");
   }
 
-  function getSubCategoryLabel(product) {
-    const list = subCategories[product.category] || [];
-    return list.find((sub) => sub.id === product.subCategory)?.label || "";
-  }
+  const filteredProducts = products.filter((product) => {
+    return (
+      product.category === activeCategory &&
+      product.subCategory === activeSubCategory
+    );
+  });
+
+  const activeCategoryLabel =
+    categories.find((cat) => cat.id === activeCategory)?.label || "";
+
+  const activeSubCategoryLabel =
+    subCategories[activeCategory].find((sub) => sub.id === activeSubCategory)
+      ?.label || "";
 
   return (
     <main className="dashboard">
@@ -260,14 +306,74 @@ export default function AdminDashboard() {
         </form>
 
         <div className="admin-products">
-          <h2>Liste des produits</h2>
+          <div className="admin-products-head">
+            <div>
+              <h2>Produits du menu</h2>
+              <p>
+                {activeCategoryLabel} / {activeSubCategoryLabel}
+              </p>
+            </div>
+          </div>
 
-          {products.length === 0 ? (
-            <p className="empty-admin">Aucun produit pour le moment.</p>
+          <div className="admin-filter-tabs">
+            {categories.map((cat) => (
+              <button
+                type="button"
+                key={cat.id}
+                className={
+                  activeCategory === cat.id
+                    ? "admin-filter active-admin-filter"
+                    : "admin-filter"
+                }
+                onClick={() => handleFilterCategory(cat.id)}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="admin-sub-filter-tabs">
+            {subCategories[activeCategory].map((sub) => (
+              <button
+                type="button"
+                key={sub.id}
+                className={
+                  activeSubCategory === sub.id
+                    ? "admin-sub-filter active-admin-sub-filter"
+                    : "admin-sub-filter"
+                }
+                onClick={() => setActiveSubCategory(sub.id)}
+              >
+                {sub.label}
+              </button>
+            ))}
+          </div>
+
+          {filteredProducts.length === 0 ? (
+            <p className="empty-admin">
+              Aucun produit dans cette sous-catégorie pour le moment.
+            </p>
           ) : (
-            products.map((product) => (
+            filteredProducts.map((product) => (
               <div className="admin-product-card" key={product.id}>
-                <img src={product.imageUrl} alt={product.name} />
+                <div className="admin-image-box">
+                  <img src={product.imageUrl} alt={product.name} />
+
+                  <label className="change-image-btn">
+                    {changingImageId === product.id
+                      ? "Changement..."
+                      : "Changer image"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      disabled={changingImageId === product.id}
+                      onChange={(e) =>
+                        updateProductImage(product.id, e.target.files[0])
+                      }
+                    />
+                  </label>
+                </div>
 
                 <div className="admin-product-fields">
                   <input
@@ -308,10 +414,6 @@ export default function AdminDashboard() {
                       </option>
                     ))}
                   </select>
-
-                  <p className="product-sub-label">
-                    Sous-catégorie: {getSubCategoryLabel(product)}
-                  </p>
                 </div>
 
                 <div className="admin-actions">
