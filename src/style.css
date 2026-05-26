@@ -1967,3 +1967,38 @@ body,
     font-size: 22px !important;
   }
 }
+.action-icon {
+  width: 20px !important;
+  height: 20px !important;
+  flex: 0 0 auto !important;
+}
+
+.glass-map-btn .action-icon {
+  color: #15803d !important;
+}
+
+.glass-call-btn .action-icon {
+  color: var(--pink-dark) !important;
+}
+
+.glass-action-btn {
+  color: #2b1323 !important;
+}
+
+@media screen and (max-width: 560px) {
+  .action-icon {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+.glass-action-btn {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 79, 154, 0.18) !important;
+  box-shadow:
+    0 12px 30px rgba(31, 16, 28, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+.glass-action-btn span {
+  letter-spacing: -0.02em !important;
+}
