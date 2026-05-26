@@ -1359,3 +1359,232 @@ button {
     font-size: 13px !important;
   }
 }
+/* ===============================
+   ADMIN DASHBOARD MOBILE CLEAN UI
+   put at the VERY END of style.css
+================================ */
+
+@media screen and (max-width: 768px) {
+  .dashboard {
+    padding: 14px !important;
+    background: #fff7fb !important;
+    overflow-x: hidden !important;
+  }
+
+  .dashboard-header {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 0 14px !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .dashboard-header::before,
+  .dashboard-header::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .dashboard-header > div:first-child {
+    background: white !important;
+    border: 1px solid rgba(255, 79, 154, 0.18) !important;
+    border-radius: 24px !important;
+    padding: 18px !important;
+    box-shadow: 0 12px 28px rgba(255, 79, 154, 0.1) !important;
+  }
+
+  .dashboard-header .small-label {
+    font-size: 11px !important;
+    margin: 0 0 4px !important;
+    color: var(--pink-dark) !important;
+  }
+
+  .dashboard-header h1 {
+    font-size: 28px !important;
+    line-height: 1 !important;
+    margin: 0 0 6px !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .dashboard-header p {
+    font-size: 13px !important;
+    margin: 0 !important;
+    color: var(--muted) !important;
+  }
+
+  .dashboard-actions {
+    margin-top: 10px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .preview-btn,
+  .logout-btn {
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 18px !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    padding: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .admin-panel {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .product-form,
+  .admin-products {
+    border-radius: 24px !important;
+    padding: 18px !important;
+    background: white !important;
+    border: 1px solid rgba(255, 79, 154, 0.18) !important;
+    box-shadow: 0 12px 28px rgba(255, 79, 154, 0.1) !important;
+  }
+
+  .product-form h2,
+  .admin-products h2 {
+    font-size: 24px !important;
+    margin: 0 0 16px !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .product-form label {
+    font-size: 13px !important;
+    margin: 12px 0 6px !important;
+    font-weight: 900 !important;
+  }
+
+  .product-form input,
+  .product-form select {
+    min-height: 46px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+    padding: 0 14px !important;
+  }
+
+  .product-form input[type="file"] {
+    padding: 12px 14px !important;
+    height: auto !important;
+  }
+
+  .product-form button[type="submit"] {
+    min-height: 48px !important;
+    border-radius: 18px !important;
+    margin-top: 18px !important;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark)) !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 950 !important;
+    box-shadow: 0 14px 30px rgba(255, 79, 154, 0.22) !important;
+  }
+
+  .admin-products-head {
+    margin-bottom: 12px !important;
+  }
+
+  .admin-products-head h2 {
+    margin-bottom: 2px !important;
+  }
+
+  .admin-products-head p {
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+    color: var(--muted) !important;
+  }
+
+  .admin-filter-tabs,
+  .admin-sub-filter-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding: 2px 0 12px !important;
+    margin: 0 !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .admin-filter-tabs::-webkit-scrollbar,
+  .admin-sub-filter-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .admin-filter,
+  .admin-sub-filter {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    height: 38px !important;padding: 0 14px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+  }
+
+  .admin-product-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    border-radius: 22px !important;
+    margin: 8px 0 14px !important;
+    background: #fff !important;
+    border: 1px solid rgba(255, 79, 154, 0.18) !important;
+    box-shadow: 0 10px 24px rgba(255, 79, 154, 0.09) !important;
+  }
+
+  .admin-image-box img,
+  .admin-product-card img {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+  }
+
+  .change-image-btn {
+    height: 40px !important;
+    border-radius: 14px !important;
+    font-size: 13px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: #fff0f7 !important;
+    color: var(--pink-dark) !important;
+    border: 1px solid rgba(255, 79, 154, 0.18) !important;
+  }
+
+  .admin-product-fields {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .admin-product-fields input,
+  .admin-product-fields select {
+    width: 100% !important;
+    min-height: 42px !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+  }
+
+  .admin-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .admin-actions button {
+    height: 40px !important;
+    border-radius: 14px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+  }
+}
