@@ -163,54 +163,107 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bottom-actions-pro">
-  <a
-    className="bottom-action-pro"
-    href={mapsUrl}
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Localiser le restaurant"
-  >
-    {selectedProduct && (
-  <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
-    <div className="product-modal" onClick={(e) => e.stopPropagation()}>
-      <button
-        className="product-modal-close"
-        onClick={() => setSelectedProduct(null)}
-        aria-label="Fermer"
-      >
-        ×
-      </button>
+      {selectedProduct && (
+        <div
+          className="product-modal-overlay"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div className="product-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="product-modal-close"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setSelectedProduct(null);
+              }}
+              aria-label="Fermer"
+            >
+              ×
+            </button>
 
-      <img
-        className="product-modal-image"
-        src={selectedProduct.imageUrl}
-        alt={selectedProduct.name}
-      />
+            <img
+              className="product-modal-image"
+              src={selectedProduct.imageUrl}
+              alt={selectedProduct.name}
+            />
 
-      <div className="product-modal-content">
-        <h2>{selectedProduct.name}</h2>
+            <div className="product-modal-content">
+              <h2>{selectedProduct.name}</h2>
 
-        {selectedProduct.description ? (
-          <p className="product-modal-description">
-            {selectedProduct.description}
-          </p>
-        ) : (
-          <p className="product-modal-description empty-description">
-            Aucune description disponible pour ce produit.
-          </p>
-        )}
+              {selectedProduct.description ? (
+                <p className="product-modal-description">
+                  {selectedProduct.description}
+                </p>
+              ) : (
+                <p className="product-modal-description empty-description">
+                  Aucune description disponible pour ce produit.
+                </p>
+              )}
 
-        <p className="product-modal-price">{selectedProduct.price} DA</p>
+              <p className="product-modal-price">
+                {selectedProduct.price} DA
+              </p>
 
-        <div className="product-modal-actions">
+              <div className="product-modal-actions">
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="modal-action-btn"
+                >
+                  <svg
+                    className="modal-action-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M12 12.2A3.2 3.2 0 1 0 12 5.8a3.2 3.2 0 0 0 0 6.4Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                  Localiser
+                </a>
+
+                <a href={`tel:${phone}`} className="modal-action-btn primary">
+                  <svg
+                    className="modal-action-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M22 16.9v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.2 18.8a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.94a16 16 0 0 0 6.06 6.06l1.31-1.31a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.9Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Appeler
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!selectedProduct && (
+        <div className="bottom-actions-pro">
           <a
+            className="bottom-action-pro"
             href={mapsUrl}
             target="_blank"
             rel="noreferrer"
-            className="modal-action-btn"
+            aria-label="Localiser le restaurant"
           >
-            <svg className="modal-action-icon" viewBox="0 0 24 24" fill="none">
+            <svg className="bottom-action-icon" viewBox="0 0 24 24" fill="none">
               <path
                 d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12Z"
                 stroke="currentColor"
@@ -223,11 +276,14 @@ export default function Home() {
                 strokeWidth="2"
               />
             </svg>
-            Localiser
+            <span>Localiser</span>
           </a>
 
-          <a href={`tel:${phone}`} className="modal-action-btn primary">
-            <svg className="modal-action-icon" viewBox="0 0 24 24" fill="none">
+          <a
+            className="bottom-action-pro"
+            href={`tel:${phone}`}aria-label="Appeler le restaurant"
+          >
+            <svg className="bottom-action-icon" viewBox="0 0 24 24" fill="none">
               <path
                 d="M22 16.9v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.2 18.8a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.94a16 16 0 0 0 6.06 6.06l1.31-1.31a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.9Z"
                 stroke="currentColor"
@@ -236,46 +292,10 @@ export default function Home() {
                 strokeLinejoin="round"
               />
             </svg>
-            Appeler
+            <span>Appeler</span>
           </a>
         </div>
-      </div>
-    </div>
-  </div>
-)}
-    <svg className="bottom-action-icon" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 12.2A3.2 3.2 0 1 0 12 5.8a3.2 3.2 0 0 0 0 6.4Z"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-    </svg>
-    <span>Localiser</span>
-  </a>
-
-  <a
-    className="bottom-action-pro"
-    href={`tel:${phone}`}
-    aria-label="Appeler le restaurant"
-  >
-    <svg className="bottom-action-icon" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M22 16.9v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.2 18.8a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.94a16 16 0 0 0 6.06 6.06l1.31-1.31a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.9Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-    <span>Appeler</span>
-  </a>
-</div>
+      )}
     </main>
   );
 }
