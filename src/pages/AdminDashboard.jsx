@@ -54,6 +54,7 @@ export default function AdminDashboard() {
   const [form, setForm] = useState({
     name: "",
     price: "",
+    description: "",
     category: "sale",
     subCategory: "salades_grillades",
     image: null,
@@ -125,6 +126,7 @@ export default function AdminDashboard() {
       await addDoc(collection(db, "products"), {
         name: form.name,
         price: Number(form.price),
+        description: form.description || "",
         category: form.category,
         subCategory: form.subCategory,
         imageUrl,
@@ -136,6 +138,7 @@ export default function AdminDashboard() {
       setForm({
         name: "",
         price: "",
+        description: "",
         category: form.category,
         subCategory: form.subCategory,
         image: null,
@@ -171,6 +174,7 @@ export default function AdminDashboard() {
       setChangingImageId(null);
     }
   }
+  
 
   async function toggleAvailable(product) {
     await updateDoc(doc(db, "products", product.id), {
@@ -189,7 +193,11 @@ export default function AdminDashboard() {
       price: Number(newPrice),
     });
   }
-
+async function updateDescription(productId, newDescription) {
+  await updateDoc(doc(db, "products", productId), {
+    description: newDescription,
+  });
+}
   async function updateCategory(productId, newCategory) {
     await updateDoc(doc(db, "products", productId), {
       category: newCategory,
@@ -260,6 +268,7 @@ export default function AdminDashboard() {
             placeholder="Ex: Pizza thon"
             value={form.name}
             onChange={handleChange}
+            
           />
 
           <label>Prix</label>
@@ -270,6 +279,13 @@ export default function AdminDashboard() {
             value={form.price}
             onChange={handleChange}
           />
+          <label>Description</label>
+<textarea
+  name="description"
+  placeholder="Ex: Sauce tomate, fromage, thon, olives..."
+  value={form.description}
+  onChange={handleChange}
+/>
 
           <label>Catégorie principale</label>
           <select name="category" value={form.category} onChange={handleChange}>
@@ -380,7 +396,11 @@ export default function AdminDashboard() {
                     value={product.name}
                     onChange={(e) => updateName(product.id, e.target.value)}
                   />
-
+<textarea
+  value={product.description || ""}
+  placeholder="Description du produit"
+  onChange={(e) => updateDescription(product.id, e.target.value)}
+/>
                   <input
                     type="number"
                     value={product.price}

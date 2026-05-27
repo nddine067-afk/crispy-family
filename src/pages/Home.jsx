@@ -145,9 +145,14 @@ export default function Home() {
                 </div>
 
                 <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="price">{product.price} DA</p>
-                </div>
+  <h3>{product.name}</h3>
+
+  {product.description && (
+    <p className="product-description">{product.description}</p>
+  )}
+
+  <p className="price">{product.price} DA</p>
+</div>
               </article>
             ))
           )}
