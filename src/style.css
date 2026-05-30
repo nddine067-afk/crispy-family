@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Sergio Trendy";
+  src: url("/src/assets/fonts/Sergio%20Trendy.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   box-sizing: border-box;
 }
@@ -733,9 +740,9 @@ button {
 .brand-title {
   margin: 0;
   text-align: center;
-  font-family: "Sergio Trendy", "Snell Roundhand", "Brush Script MT", cursive;
+  font-family: "Sergio Trendy", cursive !important;
   font-size: clamp(44px, 9vw, 86px);
-  font-weight: 700;
+  font-weight: 400 !important;
   line-height: 1;
   color: var(--pink);
   letter-spacing: 0.02em;
