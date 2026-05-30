@@ -2693,3 +2693,11 @@ overflow: hidden !important;
     font-size: 27px !important;
   }
 }
+/* FINAL BRAND FONT OVERRIDE */
+.brand-title {
+  font-family: "SergioTrendy" !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: clamp(54px, 10vw, 96px) !important;
+  letter-spacing: 0 !important;
+}
